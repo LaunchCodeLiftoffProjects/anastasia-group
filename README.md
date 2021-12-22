@@ -28,4 +28,6 @@ Bootstrap
 
 
 What are we going to learn?
-The new technology we will learn is using Java libraries to plot data. 
+The new technology we will learn is using Java libraries to plot data.
+
+Wireframe Link - https://www.tldraw.com/r/1640134921825
