@@ -29,3 +29,7 @@ Bootstrap
 
 What are we going to learn?
 The new technology we will learn is using Java libraries to plot data. 
+
+
+Group project management link( Trello): https://trello.com/b/fGW6jc1r/lugroupboard
+
