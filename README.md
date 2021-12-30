@@ -1,7 +1,9 @@
 # anastasia-group
+
 Overview: 
-    We are aiming to track our users' health well being by reflecting them on their progress by weekly or monthly graphs.
-    Tracking is important because it lets you see how you are progressing in terms of reaching your goals previously set.
+	We are aiming to track our users' health well being by reflecting them on their progress by weekly or monthly graphs.
+	Tracking is important because it lets you see how you are progressing in terms of reaching your goals previously set.
+
 
 Features:
 1.Registration 
@@ -17,7 +19,8 @@ User would be able to say their progress presented in table or graph
 6. Post some notes
 Users would be able to have a section that they can make a note based on their data recorded.
 
-Technology:
+
+Technology stacks:
 Java
 Spring Boot
 Thymeleaf
@@ -28,8 +31,14 @@ Bootstrap
 
 
 What are we going to learn?
+
 The new technology we will learn is using Java libraries to plot data. 
 
 
 Group project management link( Trello): https://trello.com/b/fGW6jc1r/lugroupboard
+
+=======
+The new technology we will learn is using Java libraries to plot data.
+
+Wireframe Link - https://www.tldraw.com/r/1640134921825
 
