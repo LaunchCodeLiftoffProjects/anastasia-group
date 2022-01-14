@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/anastasia-group.iml" filepath="$PROJECT_DIR$/.idea/anastasia-group.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Health-Application.iml" filepath="$PROJECT_DIR$/.idea/modules/Health-Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Health-Application.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Health-Application.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Health-Application.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Health-Application.test.iml" />
     </modules>
   </component>
 </project>
