@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 
 public class PersonalInformationController {
-    @GetMapping("Personal")
+    @RequestMapping ("personalInformation")
     public String greeting() {
         return "personalinformation";
     }
