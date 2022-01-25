@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang= "en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method= "post">
+        <th:block th:each="goal : ${goals}">
+            <div class="form-group">
+            <label>
+                <span th:text="${goal.name}"></span>
+                <input type="checkbox" name="goalIds" th:value = "${goal.id}" class="form-control">
+            </label>
+            </div>
+        </th:block>
+
+    <input type="submit" value="Delete" class="btn btn-danger">
+</form>
 
 </body>
 </html>

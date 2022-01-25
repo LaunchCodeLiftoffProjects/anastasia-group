@@ -5,19 +5,21 @@
 <body class=""container>
 
 <h1>All Goals</h1>
-
 <header th:replace="fragments :: header"></header>
 
 <p th:unless="${goals} and ${goals.size()}">No goals!</p>
-
 <table class="table table-striped">
     <thead>
     <tr>
+        <th>ID</th>
         <th>Name</th>
+        <th>Description</th>
     </tr>
     </thead>
     <tr th:each="goal : ${goals}">
-        <td th:text="${goal}"></td>
+        <td th:text="${goal.id}"></td>
+        <td th:text="${goal.name}"></td>
+        <td th:text="${goal.description}"></td>
     </tr>
 </table>
 
