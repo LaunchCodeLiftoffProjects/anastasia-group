@@ -5,8 +5,10 @@ import org.launchcode.Health.Application.data.GoalData;
 import org.launchcode.Health.Application.models.Goal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +24,21 @@ public class GoalsController {
     }
 
     @GetMapping("create")
-    public String renderCreateGoalForm(){
+    public String renderCreateGoalForm(Model model){
+        model.addAttribute("title", "Create Goal");
+        model.addAttribute("goal", new Goal());
         return "goals/create";
     }
 
     @PostMapping("create")
-    public String createGoal(@ModelAttribute Goal newGoal)
+    public String createGoal(@ModelAttribute @Valid Goal newGoal,
+                             Errors errors, Model model)
     {
+        if(errors.hasErrors()){
+            model.addAttribute("title", "Create Goal");
+            model.addAttribute("errorMsg","Bad value");
+            return "goals/create";
+        }
         GoalData.add(newGoal);
         return "redirect:";
     }

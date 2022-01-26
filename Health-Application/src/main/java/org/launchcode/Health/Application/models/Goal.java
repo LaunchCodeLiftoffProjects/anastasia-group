@@ -24,6 +24,8 @@ public class Goal {
         nextId++;
     }
 
+    public Goal(){}
+
     public String getName() {
         return name;
     }
