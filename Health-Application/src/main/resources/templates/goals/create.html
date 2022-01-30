@@ -19,15 +19,21 @@
     <div class="form-group">
         <input type="submit" value="Create Goal" class="btn btn-success">
     </div>
+
     <div class="form-group">
         <label>Week Days:
-            <li th:each="day: ${weekDays}">
-            <input type="checkbox" th:value="${goal.days}"
-                   th:text="${day.displayName}"
-                   >
-            </li>
+            <select th:field="${goal.days}">
+                <option  th:each="day:${weekDays}" th:value="${day}"
+                         th:text="${day.displayName}"
+                ></option>
+            </select>
         </label>
     </div>
+
+
+
+
+
 
 </form>
 
