@@ -1,30 +1,40 @@
 package org.launchcode.Health.Application.models;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Objects;
 
 public class Goal {
     private int id;
     private static int nextId = 1;
-
-    @NotBlank
-    @Size(min =3, max=50)
     private String name;
-
-    @Size(max = 500)
     private String description;
+    private WeekDays days;
 
 
 
-    public Goal(String name, String description) {
+
+
+    public Goal(String name, String description, WeekDays days ) {
         this.name = name;
         this.description = description;
         this.id = nextId;
         nextId++;
+        this.days = days;
     }
 
-    public Goal(){}
+    public  Goal(){
+       this.id = nextId;
+       nextId++;
+    }
+
+
+    public WeekDays getDays() {
+        return days;
+    }
+
+    public void setDays(WeekDays days) {
+        this.days = days;
+    }
 
     public String getName() {
         return name;
@@ -45,6 +55,8 @@ public class Goal {
     public int getId() {
         return id;
     }
+
+
 
     @Override
     public String toString() {

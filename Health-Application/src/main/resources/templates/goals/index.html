@@ -14,12 +14,18 @@
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
+        <th>Days</th>
     </tr>
     </thead>
     <tr th:each="goal : ${goals}">
         <td th:text="${goal.id}"></td>
         <td th:text="${goal.name}"></td>
         <td th:text="${goal.description}"></td>
+        <td th:each="day:${goal.days}">
+            <p th:text="*{day.displayName}"></p>
+        </td>
+
+
     </tr>
 </table>
 

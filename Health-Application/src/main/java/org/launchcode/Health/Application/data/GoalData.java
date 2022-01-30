@@ -2,9 +2,7 @@ package org.launchcode.Health.Application.data;
 
 import org.launchcode.Health.Application.models.Goal;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class GoalData {
     //need a place to put goals
@@ -16,8 +14,14 @@ public class GoalData {
     }
 
     //get a single goal
-    public static Goal getById(int id) {
+    public static Goal getById(Integer id) {
         return goals.get(id);
+    }
+
+    public static void remove(Integer id) {
+        if (goals.containsKey(id)) {
+            goals.remove(id);
+        }
     }
 
     // add a goal
@@ -31,5 +35,8 @@ public class GoalData {
     public static void remove (int id){
         goals.remove (id);
     }
+
+
+
 
 }
