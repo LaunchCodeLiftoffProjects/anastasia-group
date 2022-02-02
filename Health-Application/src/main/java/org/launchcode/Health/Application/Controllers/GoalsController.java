@@ -1,62 +1,57 @@
 package org.launchcode.Health.Application.Controllers;
 //
 
-import org.launchcode.Health.Application.models.data.GoalRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.launchcode.Health.Application.data.GoalData;
+import org.launchcode.Health.Application.models.WeekDays;
+import org.launchcode.Health.Application.models.Goal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-//
+
 @Controller
 @RequestMapping("goals")
 public class GoalsController {
-    @Autowired
-   // private GoalRepository goalRepository;
 
-    @RequestMapping("")
-    public String index() {
-        // model.addAttribute ("goals", goalRepository.findAll());
+    @GetMapping()
+    public String displayAllGoals(Model model) {
+        model.addAttribute ("goals", GoalData.getAll());
         return "goals/index";
     }
+
+
+    @GetMapping("create")
+    public String renderCreateGoalForm(Model model){
+        model.addAttribute("title", "Create Goal");
+        model.addAttribute("goal", new Goal());
+        model.addAttribute("weekDays", WeekDays.values());
+        return "goals/create";
+    }
+
+    @PostMapping("create")
+    public String processCreateGoalForm(@ModelAttribute  Goal newGoal)
+    {
+        GoalData.add(newGoal);
+        return "redirect:";
+    }
+
+    @GetMapping("delete")
+    public String displayDeleteGoalForm(Model model){
+        model.addAttribute("title","Delete Goals");
+        model.addAttribute("goals", GoalData.getAll());
+        return "goals/delete";
+    }
+    @PostMapping("delete")
+    public String processDeleteGoalsForm(@RequestParam(required = false) int[] goalIds) {
+        if (goalIds != null) {
+            for (int id : goalIds) {
+                GoalData.remove(id);
+            }
+        }
+            return "redirect:";
+        }
+
+
+
 }
-//
-//    @GetMapping("add")
-//    public String displayAddGoalsForm(Model model){
-//        model.addAttribute(new Goal());
-//        return "goals/add";
-//    }
-//
-//    @PostMapping("add")
-//    public String processAddGoalForm(@ModelAttribute @Valid Skill newSkill, Errors errors, Model model){
-//        if (errors.hasErrors()){
-//            return "goals/add";
-//        }
-//        model.addAttribute("goal", goalRepository.save(newGoal));
-//        return "redirect";
-//    }
-//
-//    @GetMapping("view/{goalId")
-//    public String dispalyViewGoal(Model model, @PathVariable int goalId){
-//        Optional optGoal = goalRepository.findById(goalId);
-//        if (optGoal.isPresent()){
-//            Goal goal = (Goal) optGoal.get();
-//            model.addAttribute("goal", goal);
-//            return "goals/view";
-//        } else{
-//            return "redirect:../";
-//        }
-//
-//
-//    }
-//
-//
-//
-//
-//
-//
-//}
+

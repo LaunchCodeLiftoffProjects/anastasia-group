@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang= "en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<header th:replace="fragments :: header"></header>
+
+<form method="post" action="/goals/create">
+    <div class="form-group">
+        <label>Name
+            <input type="text" th:field="${goal.name}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input type="text" th:field="${goal.description}" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create Goal" class="btn btn-success">
+    </div>
+
+    <div class="form-group">
+        <label>Week Days:
+            <select th:field="${goal.days}">
+                <option  th:each="day:${weekDays}" th:value="${day}"
+                         th:text="${day.displayName}"
+                ></option>
+            </select>
+        </label>
+    </div>
+
+
+
+
+
+
+</form>
+
+</body>
+</html>
