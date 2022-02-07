@@ -1,4 +1,9 @@
 package org.launchcode.Health.Application.data;
 
-public interface GoalRepository {
+import org.launchcode.Health.Application.models.Goal;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface GoalRepository extends CrudRepository<Goal, Integer> {
 }

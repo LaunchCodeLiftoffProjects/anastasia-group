@@ -1,31 +1,35 @@
 package org.launchcode.Health.Application.models;
 
+import org.launchcode.Health.Application.models.data.AbstractEntity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.List;
 import java.util.Objects;
+@Entity
 
-public class Goal {
+public class Goal extends AbstractEntity {
+    @Id
+    @GeneratedValue
     private int id;
     private static int nextId = 1;
     private String name;
     private String description;
     private WeekDays days;
 
-
+    public  Goal(){
+    }
 
 
 
     public Goal(String name, String description, WeekDays days ) {
         this.name = name;
         this.description = description;
-        this.id = nextId;
-        nextId++;
         this.days = days;
     }
 
-    public  Goal(){
-       this.id = nextId;
-       nextId++;
-    }
+
 
 
     public WeekDays getDays() {

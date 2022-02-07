@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang= "en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+    <title th:text="'Health Tracking' + ${title == null ? '' : ' :: ' + title}">Health Tracking</title>
+    <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a th:href="home" class="navbar-brand">Home Page</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="Personal">Personal Details</a></li>
+                    <li><a th:href="goals">Goals</a></li>
+                    <li><a th:href="tracking">Tracking</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
 </head>
 <body class=""container>
-
 <h1>All Goals</h1>
 <header th:replace="fragments :: header"></header>
 
@@ -11,14 +29,12 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>ID</th>
         <th>Name</th>
         <th>Description</th>
         <th>Days</th>
     </tr>
     </thead>
     <tr th:each="goal : ${goals}">
-        <td th:text="${goal.id}"></td>
         <td th:text="${goal.name}"></td>
         <td th:text="${goal.description}"></td>
         <td
