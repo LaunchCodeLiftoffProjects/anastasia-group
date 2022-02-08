@@ -17,23 +17,13 @@
         </label>
     </div>
     <div class="form-group">
-        <input type="submit" value="Create a Goal" class="btn btn-success">
-    </div>
-
-    <div class="form-group">
-        <label>Week Days:
-            <select th:field="${goal.days}">
-                <option  th:each="day:${weekDays}" th:value="${day}"
-                         th:text="${day.displayName}"
-                ></option>
-            </select>
+        <label>Days
+            <input type="text" th:field="${goal.days}" class="form-control">
         </label>
     </div>
-
-
-
-
-
+    <div class="form-group">
+        <input type="submit" value="Create a Goal" class="btn btn-success">
+    </div>
 
 </form>
 

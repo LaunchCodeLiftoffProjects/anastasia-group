@@ -2,7 +2,6 @@ package org.launchcode.Health.Application.Controllers;
 //
 
 import org.launchcode.Health.Application.data.GoalRepository;
-import org.launchcode.Health.Application.models.WeekDays;
 import org.launchcode.Health.Application.models.Goal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +26,6 @@ public class GoalsController {
     public String renderCreateGoalForm(Model model){
         model.addAttribute("title", "Create a Goal");
         model.addAttribute("goal", new Goal());
-        model.addAttribute("weekDays", WeekDays.values());
         return "goals/create";
     }
 
