@@ -1,10 +1,9 @@
 package org.launchcode.Health.Application.Controllers;
 
+import org.launchcode.Health.Application.models.homePage.HomePageContact;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
@@ -12,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomePageController {
 
     @GetMapping("home")
-    public String homePage() {
-
+    public String homePage(Model model) {
+        model.addAttribute("homePageContact", new HomePageContact());
         return "homePage/homePage";
     }
 
-    //dynamic handler
-//    @GetMapping("hello/{name}")
-//    public String personalDetails(@PathVariable String name) {
-
+    @PostMapping("home")
+    public String greeting(@ModelAttribute HomePageContact homePageContact, Model model){
+        model.addAttribute("homePageContact", homePageContact);
+        return "homePage/contact";
+    }
 
 }
