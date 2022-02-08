@@ -37,11 +37,7 @@
     <tr th:each="goal : ${goals}">
         <td th:text="${goal.name}"></td>
         <td th:text="${goal.description}"></td>
-        <td
-        th:text="${goal.days.displayName}">
-        </td>
-
-
+        <td th:text="${goal.days}"></td>
     </tr>
 </table>
 
