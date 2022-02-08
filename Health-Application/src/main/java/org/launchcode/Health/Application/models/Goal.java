@@ -16,27 +16,25 @@ public class Goal extends AbstractEntity {
     private static int nextId = 1;
     private String name;
     private String description;
-    private WeekDays days;
+    private int days;
 
     public  Goal(){
     }
 
 
 
-    public Goal(String name, String description, WeekDays days ) {
+    public Goal(String name, String description, int days ) {
         this.name = name;
         this.description = description;
         this.days = days;
     }
 
 
-
-
-    public WeekDays getDays() {
+    public int getDays() {
         return days;
     }
 
-    public void setDays(WeekDays days) {
+    public void setDays(int days) {
         this.days = days;
     }
 
