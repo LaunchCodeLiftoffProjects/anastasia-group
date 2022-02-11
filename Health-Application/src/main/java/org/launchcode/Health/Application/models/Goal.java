@@ -5,6 +5,8 @@ import org.launchcode.Health.Application.models.data.AbstractEntity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Objects;
 @Entity
@@ -14,7 +16,10 @@ public class Goal extends AbstractEntity {
     @GeneratedValue
     private int id;
     private static int nextId = 1;
+    @NotBlank(message = "goal's name is required")
     private String name;
+    @NotBlank
+    @Size(max = 100, message ="goal description must be less than 100 chracters long")
     private String description;
     private int days;
 

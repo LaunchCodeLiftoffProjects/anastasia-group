@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+
+<head th:fragment="head">
+
+    <!-- Bootstrap stylesheets and script -->
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+
+    <title th:text="'Health Tracking' + ${title == null ? '' : ' :: ' + title}">Health Tracking</title>
+    <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a th:href="home" class="navbar-brand">Home Page</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a th:href="Personal">Personal Details</a></li>
+                    <li><a th:href="goals">Goals</a></li>
+                    <li><a th:href="tracking">Tracking</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</head>
+
+<body>
+<br><br><br><br><br><br>
+<form  th:object="${personalInfo}" method="post">
+    <section class="h-100 bg-dark">
+        <div class="container py-5 h-100; ">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                    <div class="card card-registration my-4">
+                        <div class="row g-0">
+                            <div class="col-xl-6 d-none d-xl-block">
+<!--                                <center>-->
+<!--                                    <img-->
+<!--                                            src="css/personal.jpeg"-->
+<!--                                            alt="Sample photo"-->
+<!--                                            class="img-fluid"-->
+<!--                                            style="border-top-left-radius: 3rem; border-bottom-left-radius: 3rem;border-bottom-right-radius: 3rem;border-top-right-radius: 3rem;"-->
+<!--                                            height="300"-->
+<!--                                            width="700"-->
+
+<!--                                    />-->
+<!--                                </center>-->
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card-body p-md-5 text-black">
+
+
+                                    <h3 class="mb-5 text-uppercase">Personal Information Form</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input th:field="${personalInfo.name}" type="text" id="form3Example1m" class="form-control form-control-lg" />
+                                                <label class="form-label" for="form3Example1m">First & Last Name</label>
+                                                <p class="error" th:errors="${personalInfo.name}"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input th:field="${personalInfo.email}" type="text" id="form3Example1n" class="form-control form-control-lg" />
+                                                <label class="form-label" for="form3Example1n">Email</label>
+                                                <p class="error" th:errors="${personalInfo.email}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input th:field="${personalInfo.gender}" type="text" id="form3Example1m1" class="form-control form-control-lg" />
+                                                <label class="form-label" for="form3Example1m1">Gender</label>
+                                                <p class="error" th:errors="${personalInfo.gender}"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline">
+                                                <input th:field="${personalInfo.phoneNumber}" type="text" id="form3Example1n1"  class="form-control form-control-lg"/>
+                                                <label class="form-label" for="form3Example1n1">Phone Number</label>
+                                                <p class="error" th:errors="${personalInfo.phoneNumber}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <input th:field="${personalInfo.address}" type="text" id="form3Example8" class="form-control form-control-lg" />
+                                        <label class="form-label" for="form3Example8">Address</label>
+                                        <p class="error" th:errors="${personalInfo.address}"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input th:field="${personalInfo.DBO}" type="text" id="form3Example9" class="form-control form-control-lg" />
+                                <label class="form-label" for="form3Example9">DOB</label>
+                                <p class="error" th:errors="${personalInfo.DBO}"></p>
+                            </div>
+                            <div class="d-flex justify-content-end pt-3">
+                                <input type="submit" class="btn btn-warning btn-lg ms-2"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+</form>
+</body>
+</html>
