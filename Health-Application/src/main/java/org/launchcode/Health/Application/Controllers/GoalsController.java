@@ -6,7 +6,10 @@ import org.launchcode.Health.Application.models.Goal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -30,8 +33,13 @@ public class GoalsController {
     }
 
     @PostMapping("create")
-    public String processCreateGoalForm(@ModelAttribute  Goal newGoal)
+    public String processCreateGoalForm(@ModelAttribute  @Valid Goal newGoal, Errors errors,Model model)
     {
+        if (errors.hasErrors()){
+            model.addAttribute("title","Create a Goal");
+            return"goals/create";
+
+        }
         goalRepository.save(newGoal);
         return "redirect:";
     }
