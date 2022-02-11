@@ -21,6 +21,7 @@ public class Goal extends AbstractEntity {
     @NotBlank
     @Size(max = 100, message ="goal description must be less than 100 chracters long")
     private String description;
+
     private int days;
 
     public  Goal(){
