@@ -41,7 +41,7 @@ public class GoalsController {
 
         }
         goalRepository.save(newGoal);
-        return "redirect:";
+        return "redirect:/goals";
     }
 
     @GetMapping("delete")
